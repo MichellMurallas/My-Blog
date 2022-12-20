@@ -1,36 +1,37 @@
-import React, { useState, useEffect } from 'react'
-import { Peticion } from '../Helpers/Peticion';
-import { Global } from '../Helpers/Global';
+import React, { useEffect, useState } from 'react'
+import react from "../../assets/react.svg"
+import { Global } from '../../Helpers/Global';
+import { Peticion } from '../../Helpers/Peticion';
 import { Listado } from './Listado';
-
 
 const Articulos = () => {
 
-  const [articulos, setArticulos] = useState([])
-  const [cargando, setCargando] = useState(true)
+  const [articulos, setArticulos] = useState([]);
+  const [cargando, setCargando] = useState(true);
 
   useEffect(() => {
-    conseguiArticulos();
+    conseguirArticulos();
   }, [])
 
-  const conseguiArticulos = async() => {
+  const conseguirArticulos = async()=>{
 
-    const {datos, cargando} = await Peticion(Global.url+"articulos", "GET");
+    const {datos, cargando} = await  Peticion(Global.url+"articulos", "GET")
 
-    if (datos.status === "success"){
-      setArticulos(datos.articulos);
+    if(datos.status === "success"){
+      setArticulos(datos.articulos)
     }
     setCargando(false)
   }
 
   return (
     <>
-    {cargando? "Cargando..." :
-  
-      articulos.length >=1 ? 
-           <Listado articulos={articulos} setArticulos={setArticulos} />
-           : <h1>No hay articulos</h1>
-    }
+    {cargando ? "Cargando..." : 
+
+      articulos.length >= 1 ?
+      <Listado articulos={articulos} setArticulos={setArticulos} />
+      : <h1>No hay articulos</h1>
+}
+
     </>
   )
 }

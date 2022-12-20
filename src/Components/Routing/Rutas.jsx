@@ -22,8 +22,8 @@ export const Rutas = () => {
             <Route path='/inicio' element={<Inicio />} />
             <Route path='/articulos' element={<Articulos />} />
             <Route path='/CrearArticulos' element={<Crear />} />
-            {/* <Route path='/articulos' element={<Articulos />} />
-            <Route path='/busqueda' element={<Busqueda />} />
+            <Route path='/articulos' element={<Articulos />} />
+            {/* <Route path='/busqueda' element={<Busqueda />} />
             <Route path='/crear' element={<Crear />} />
             <Route path='/editar' element={<Editar />} /> */}
           </Route>
